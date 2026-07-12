@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: ./catalog-service
-      DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/catalog-service:0.0.1-SNAPSHOT
+      DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/catalog-service
     defaults:
       run:
         working-directory: ${{ env.working-directory }}
@@ -43,6 +43,6 @@ jobs:
 
       - name: Build and Publish Docker Image
         run: |
-          ./mvnw spring-boot:build-image -DskipTests
+          ./mvnw spring-boot:build-image -DskipTests -Dspring-boot.build-image.imageName=$DOCKER_IMAGE_NAME:latest
           echo "Pushing the image $DOCKER_IMAGE_NAME to Docker Hub..."
-          docker push $DOCKER_IMAGE_NAME
+          docker push $DOCKER_IMAGE_NAME:latest
