@@ -1,5 +1,8 @@
 name: Order Service
 
+permissions:
+  contents: read
+
 on:
   push:
     paths:
@@ -14,7 +17,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-      working-directory: ./catalog-service
+      working-directory: ./order-service
       DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/order-service
     defaults:
       run:
