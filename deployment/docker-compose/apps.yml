@@ -56,7 +56,7 @@ services:
       - RABBITMQ_HOST=bookstore-rabbitmq
       - RABBITMQ_PORT=5672
       - RABBITMQ_USERNAME=guest
-      - RABBITMQ_PASSWORD=guestM
+      - RABBITMQ_PASSWORD=guest
       - MAIL_HOST=mailhog
       - MAIL_PORT=1025
     ports:
