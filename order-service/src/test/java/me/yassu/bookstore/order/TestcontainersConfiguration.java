@@ -1,5 +1,7 @@
 package me.yassu.bookstore.order;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
+
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +10,6 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.rabbitmq.RabbitMQContainer;
 import org.testcontainers.utility.DockerImageName;
 import org.wiremock.integrations.testcontainers.WireMockContainer;
-
-import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
 @TestConfiguration(proxyBeanMethods = false)
 class TestcontainersConfiguration {
@@ -37,7 +37,6 @@ class TestcontainersConfiguration {
 
     @Bean
     DynamicPropertyRegistrar dynamicPropertyRegistrar(WireMockContainer wiremockServer) {
-        return registry ->
-                registry.add("orders.catalog-service-url", wiremockServer::getBaseUrl);
+        return registry -> registry.add("orders.catalog-service-url", wiremockServer::getBaseUrl);
     }
 }

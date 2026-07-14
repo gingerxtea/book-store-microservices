@@ -1,11 +1,10 @@
 package me.yassu.bookstore.order.domain;
 
-import me.yassu.bookstore.order.domain.models.*;
-
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import me.yassu.bookstore.order.domain.models.*;
 
 class OrderEventMapper {
 
@@ -53,8 +52,7 @@ class OrderEventMapper {
 
     private static Set<OrderItem> getOrderItems(OrderEntity order) {
         return order.getItems().stream()
-                .map(item -> new OrderItem(item.getCode(),
-                        item.getName(), item.getPrice(), item.getQuantity()))
+                .map(item -> new OrderItem(item.getCode(), item.getName(), item.getPrice(), item.getQuantity()))
                 .collect(Collectors.toSet());
     }
 }

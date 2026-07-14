@@ -1,16 +1,15 @@
 package me.yassu.bookstore.order.web.controllers;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.notNullValue;
+
 import io.restassured.http.ContentType;
+import java.math.BigDecimal;
 import me.yassu.bookstore.order.AbstractIT;
 import me.yassu.bookstore.order.testdata.TestDataFactory;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-
-import java.math.BigDecimal;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.notNullValue;
 
 class OrderControllerTest extends AbstractIT {
 

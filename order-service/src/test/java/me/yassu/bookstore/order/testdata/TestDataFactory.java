@@ -1,16 +1,15 @@
 package me.yassu.bookstore.order.testdata;
 
+import static org.instancio.Select.field;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
 import me.yassu.bookstore.order.domain.models.Address;
 import me.yassu.bookstore.order.domain.models.CreateOrderRequest;
 import me.yassu.bookstore.order.domain.models.Customer;
 import me.yassu.bookstore.order.domain.models.OrderItem;
 import org.instancio.Instancio;
-
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Set;
-
-import static org.instancio.Select.field;
 
 public class TestDataFactory {
 

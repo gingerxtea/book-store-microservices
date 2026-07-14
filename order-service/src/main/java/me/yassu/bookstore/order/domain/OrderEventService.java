@@ -1,6 +1,6 @@
 package me.yassu.bookstore.order.domain;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.List;
 import me.yassu.bookstore.order.domain.models.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +8,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tools.jackson.databind.ObjectMapper;
-
-import java.util.List;
 
 @Service
 @Transactional

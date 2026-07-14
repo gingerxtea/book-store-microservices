@@ -1,5 +1,9 @@
 package me.yassu.bookstore.order.web.exception;
 
+import java.net.URI;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import me.yassu.bookstore.order.domain.InvalidOrderException;
 import me.yassu.bookstore.order.domain.OrderNotFoundException;
 import org.springframework.http.*;
@@ -9,11 +13,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import java.net.URI;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
@@ -58,8 +57,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @Override
-    @Nullable
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+    @Nullable protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         List<String> errors = new ArrayList<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {

@@ -1,5 +1,6 @@
 package me.yassu.bookstore.order.domain;
 
+import java.util.List;
 import me.yassu.bookstore.order.domain.models.CreateOrderRequest;
 import me.yassu.bookstore.order.domain.models.CreateOrderResponse;
 import me.yassu.bookstore.order.domain.models.OrderCreatedEvent;
@@ -8,8 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional

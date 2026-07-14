@@ -2,8 +2,7 @@ package me.yassu.bookstore.catalog.domain;
 
 class ProductMapper {
 
-    ProductMapper() {
-    }
+    ProductMapper() {}
 
     static Product toProduct(ProductEntity productEntity) {
         return new Product(

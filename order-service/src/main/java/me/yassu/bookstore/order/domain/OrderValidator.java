@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 class OrderValidator {
 
     private static final Logger log = LoggerFactory.getLogger(OrderValidator.class);
-    
+
     private final ProductServiceClient productServiceClient;
 
     OrderValidator(ProductServiceClient productServiceClient) {
@@ -22,7 +22,8 @@ class OrderValidator {
     void validateOrder(CreateOrderRequest request) {
         if (request != null && request.items() != null && !request.items().isEmpty()) {
             for (OrderItem item : request.items()) {
-                Product product = productServiceClient.getProductByCode(item.code())
+                Product product = productServiceClient
+                        .getProductByCode(item.code())
                         .orElseThrow(() -> new InvalidOrderException("Invalid Product Code: " + item.code()));
 
                 if (item.price().compareTo(product.price()) != 0) {

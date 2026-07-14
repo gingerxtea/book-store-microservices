@@ -1,13 +1,12 @@
 package me.yassu.bookstore.order.client;
 
+import java.time.Duration;
 import me.yassu.bookstore.order.ApplicationProperties;
 import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.web.client.RestClient;
-
-import java.time.Duration;
 
 @Configuration
 class CatalogServiceClientConfig {

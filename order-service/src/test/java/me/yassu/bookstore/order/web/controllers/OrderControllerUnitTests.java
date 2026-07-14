@@ -1,5 +1,17 @@
 package me.yassu.bookstore.order.web.controllers;
 
+import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithInvalidCustomer;
+import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithInvalidDeliveryAddress;
+import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithNoItems;
+import static org.junit.jupiter.api.Named.named;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.BDDMockito.given;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.stream.Stream;
 import me.yassu.bookstore.order.domain.OrderService;
 import me.yassu.bookstore.order.domain.SecurityService;
 import me.yassu.bookstore.order.domain.models.CreateOrderRequest;
@@ -13,19 +25,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
-
-import java.util.stream.Stream;
-
-import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithInvalidCustomer;
-import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithInvalidDeliveryAddress;
-import static me.yassu.bookstore.order.testdata.TestDataFactory.createOrderRequestWithNoItems;
-import static org.junit.jupiter.api.Named.named;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = OrderController.class)
 class OrderControllerUnitTests {
@@ -65,5 +64,4 @@ class OrderControllerUnitTests {
                 arguments(named("Order with Invalid Delivery Address", createOrderRequestWithInvalidDeliveryAddress())),
                 arguments(named("Order with No Items", createOrderRequestWithNoItems())));
     }
-
 }

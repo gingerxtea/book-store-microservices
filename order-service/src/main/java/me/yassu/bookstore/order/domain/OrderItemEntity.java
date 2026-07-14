@@ -1,7 +1,6 @@
 package me.yassu.bookstore.order.domain;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 
 @Entity

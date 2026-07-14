@@ -1,19 +1,17 @@
 package me.yassu.bookstore.order.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 import me.yassu.bookstore.order.domain.models.CreateOrderRequest;
 import me.yassu.bookstore.order.domain.models.OrderDTO;
 import me.yassu.bookstore.order.domain.models.OrderItem;
 import me.yassu.bookstore.order.domain.models.OrderStatus;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
 class OrderMapper {
 
-    OrderMapper() {
-    }
+    OrderMapper() {}
 
     static OrderEntity convertToEntity(CreateOrderRequest request) {
         OrderEntity newOrder = new OrderEntity();
@@ -37,8 +35,7 @@ class OrderMapper {
 
     static OrderDTO convertToDTO(OrderEntity order) {
         Set<OrderItem> orderItems = order.getItems().stream()
-                .map(item -> new OrderItem(item.getCode(), item.getName(),
-                        item.getPrice(), item.getQuantity()))
+                .map(item -> new OrderItem(item.getCode(), item.getName(), item.getPrice(), item.getQuantity()))
                 .collect(Collectors.toSet());
 
         return new OrderDTO(

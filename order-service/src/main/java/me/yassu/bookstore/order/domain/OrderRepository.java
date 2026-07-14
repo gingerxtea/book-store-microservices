@@ -1,10 +1,9 @@
 package me.yassu.bookstore.order.domain;
 
-import me.yassu.bookstore.order.domain.models.OrderStatus;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 import java.util.Optional;
+import me.yassu.bookstore.order.domain.models.OrderStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 interface OrderRepository extends JpaRepository<OrderEntity, Long> {
 
